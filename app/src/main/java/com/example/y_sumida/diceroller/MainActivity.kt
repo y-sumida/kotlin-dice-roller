@@ -3,7 +3,9 @@ package com.example.y_sumida.diceroller
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,7 +16,13 @@ class MainActivity : AppCompatActivity() {
         var rollButton = findViewById<Button>(R.id.roll_button)
         rollButton.text = "Let's Roll"
         rollButton.setOnClickListener {
-            Toast.makeText(this, "button clicked", Toast.LENGTH_SHORT).show()
+            rollDice()
         }
+    }
+
+    private fun rollDice() {
+        val randomInt = Random().nextInt(6) + 1
+        val resultText = findViewById<TextView>(R.id.result_text)
+        resultText.text = "$randomInt"
     }
 }
